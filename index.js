@@ -3,6 +3,7 @@ const app=express();
 const PORT=process.env.PORT||"6010"
 const path=require("path");
 const cors=require('cors');
+const fs=require("fs");
 app.use(cors());
 
 app.get('/api/PrintDeed/:deedid/date/:year/:month/:day',(req,res)=>{
@@ -16,14 +17,8 @@ app.get('/api/PrintDeed/:deedid/date/:year/:month/:day',(req,res)=>{
 })
 
 app.get('/api/DeedDownload/1999403',(req,res)=>{
-    const options={
-        root:path.join(__dirname)
-    }
-    const filename="deed.png";
-    res.sendFile(filename,options,(err)=>{
-        if(err) console.log('error for getting data');
-        else console.log('success');
-    });
+  const img=fs.readFileSync("./deed.png");
+  res.send(Buffer.from(img).toString('base64'))
 })
 app.get('/log',async (req,res)=>{
     console.log('inide')
