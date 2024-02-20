@@ -1,6 +1,8 @@
 const express=require("express")
 const app=express();
+const axios=require('axios');
 const PORT=process.env.PORT||"6010"
+const path=require("path");
 app.get('/api/PrintDeed/:deedid/date/:year/:month/:day',(req,res)=>{
     const deedid=req.params["deedid"];
     const year=req.params["year"];
@@ -10,6 +12,19 @@ app.get('/api/PrintDeed/:deedid/date/:year/:month/:day',(req,res)=>{
     res.send(`${req.get('host')}/api/DeedDownload/1999403`);
 })
 
+app.get('/api/DeedDownload/1999403',(req,res)=>{
+    const options={
+        root:path.join(__dirname)
+    }
+    const filename="deed.png";
+    res.sendFile(filename,options,(err)=>{
+        if(err) console.log('error for getting data');
+        else console.log('success');
+    });
+})
+app.get('/log',async (req,res)=>{
+    res.send('logging...')
+})
 app.get("/",(req,res)=>{
     res.send("listening ....");
 })
