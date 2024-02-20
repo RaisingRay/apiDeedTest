@@ -26,6 +26,7 @@ app.get('/api/DeedDownload/1999403',(req,res)=>{
     });
 })
 app.get('/log',async (req,res)=>{
+    console.log('inide')
     res.send('logging...')
 })
 app.get("/",(req,res)=>{
