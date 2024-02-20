@@ -6,6 +6,7 @@ const cors=require('cors');
 app.use(cors());
 
 app.get('/api/PrintDeed/:deedid/date/:year/:month/:day',(req,res)=>{
+    console.log("inside")
     const deedid=req.params["deedid"];
     const year=req.params["year"];
     const day=req.params["day"]
