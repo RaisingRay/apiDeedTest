@@ -1,9 +1,24 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@now/node"
-    }
-  ]
+    "version":2,
+    "builds":[
+        {
+            "src":"./index.js",
+            "use":"@vercel/node"
+        }
+    ],
+    "routes":[
+        {
+            "src": "/(.*)" ,
+            "dest":"/"
+
+        }
+    ], 
+     "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+              { "key": "Access-Control-Allow-Origin", "value": "*" }
+            ]
+          }
+      ]
 }
