@@ -9,6 +9,10 @@ app.get('/api/PrintDeed/:deedid/date/:year/:month/:day',(req,res)=>{
     console.log(deedid,year,month,day)
     res.send(`${req.get('host')}/api/DeedDownload/1999403`);
 })
+
+app.get("/",(req,res)=>{
+    res.send("listening ....");
+})
 app.listen(PORT,()=>{
     console.log(`Listening port ${PORT}...`)
 })
