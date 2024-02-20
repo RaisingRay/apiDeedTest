@@ -1,8 +1,10 @@
 const express=require("express")
 const app=express();
-const axios=require('axios');
 const PORT=process.env.PORT||"6010"
 const path=require("path");
+const cors=require('cors');
+app.use(cors());
+
 app.get('/api/PrintDeed/:deedid/date/:year/:month/:day',(req,res)=>{
     const deedid=req.params["deedid"];
     const year=req.params["year"];
