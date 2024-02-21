@@ -17,8 +17,8 @@ app.get('/api/PrintDeed/:deedid/date/:year/:month/:day',(req,res)=>{
 })
 
 app.get('/api/DeedDownload/1999403',(req,res)=>{
-  const img=fs.readFileSync("./deed.png");
-  res.send(Buffer.from(img).toString('base64'))
+  const content=fs.readFileSync("./config.json");
+  res.send(content.toString())
 })
 app.get('/log',async (req,res)=>{
     console.log('inide')
