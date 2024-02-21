@@ -25,7 +25,7 @@ app.get('/log',async (req,res)=>{
     res.send('logging...')
 })
 app.get("/",(req,res)=>{
-    res.send("listening ....");
+    res.send("listening ....!");
 })
 app.listen(PORT,()=>{
     console.log(`Listening port ${PORT}...`)
