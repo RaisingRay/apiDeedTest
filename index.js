@@ -17,7 +17,7 @@ app.get('/api/PrintDeed/:deedid/date/:year/:month/:day',(req,res)=>{
 })
 
 app.get('/api/DeedDownload/1999403',(req,res)=>{
-  const content=fs.readFileSync("./config.json");
+  const content=fs.readFileSync(__dirname+"/config.json");
   res.send(content.toString())
 })
 app.get('/log',async (req,res)=>{
